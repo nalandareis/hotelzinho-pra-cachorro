@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --font-sans: "Nunito Variable", ui-rounded, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-hand: "Pangolin", "Comic Sans MS", cursive;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-sand: var(--sand);
+  --color-peach: var(--peach);
+  --color-peach-deep: var(--peach-deep);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-sage-deep: var(--sage-deep);
+  --color-mist: var(--mist);
+  --color-honey: var(--honey);
+  --color-honey-deep: var(--honey-deep);
+  --color-bark: var(--bark);
+  --color-caramel: var(--caramel);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --cream: #f8f5ec;
+  --cream-soft: #fdf9f3;
+  --sand: #f9f1e6;
+  --peach: #f9e9da;
+  --peach-deep: #f5e3cf;
+  --sage: #c7cdb1;
+  --sage-soft: #e3e6d3;
+  --sage-deep: #a0ac86;
+  --mist: #f7f3e9;
+  --honey: #fed46d;
+  --honey-deep: #fcc950;
+  --bark: #5b2e18;
+  --caramel: #9c5c1e;
+  --forest: #232a1e;
+  --ink: #342b20;
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --card: var(--cream-soft);
+  --card-foreground: var(--ink);
+  --popover: var(--cream-soft);
+  --popover-foreground: var(--ink);
+  --primary: var(--honey);
+  --primary-foreground: var(--forest);
+  --secondary: var(--peach-deep);
+  --secondary-foreground: var(--bark);
+  --muted: var(--sand);
+  --muted-foreground: #7a6c5e;
+  --accent: var(--peach);
+  --accent-foreground: var(--bark);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #eadfce;
+  --input: #eadfce;
+  --ring: var(--caramel);
+  --radius: 0.75rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* O mockup foi feito em 1024px: a partir daí tudo cresce junto, mantendo a proporção. */
+@media (min-width: 64rem) {
+  html {
+    font-size: clamp(16px, 1.5625vw, 24px);
+  }
+}
+
+/* Transição longa e suave: a foto tem fundo escuro e precisa se dissolver no pêssego da seção. */
+@utility hero-fade {
+  mask-image: linear-gradient(
+    to right,
+    #000 50%,
+    rgb(0 0 0 / 0.82) 62%,
+    rgb(0 0 0 / 0.46) 74%,
+    rgb(0 0 0 / 0.17) 85%,
+    rgb(0 0 0 / 0.05) 93%,
+    transparent 100%
+  );
+}
+
+@utility site-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 54.2rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 64rem) {
+    padding-inline: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
